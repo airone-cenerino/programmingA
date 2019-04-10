@@ -1,4 +1,5 @@
 import java.util.*;
+import java.lang.*;
 
 /**
  * ExhaustiveSearch
@@ -14,28 +15,25 @@ public class ExhaustiveSearch {
             a[i] = sc.nextInt();
         }
 
-        int k = 0;
-        int[] list = new int[n * (n - 1)];
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                list[k] = a[i] + a[i + j + 1];
-                System.out.println(list[k]);
-                k++;
+        boolean[] list = new boolean[20 * 2001];
+
+        for (int i = 0; i < 1 << n; i++) { // 全てのパターン
+            int tmp = 0;
+            for (int j = 0; j < n; j++) { // j文字目を足し算に入れるかどうか
+                if ((i & (1 << j)) != 0) { // j が bit に入るかどうか
+                    tmp += a[j];
+                }
             }
+            list[tmp] = true;
         }
 
-        Arrays.sort(list);
         int q = Integer.parseInt(sc.next());
-
         for (int i = 0; i < q; i++) {
-            int m = Integer.parseInt(sc.next());
-
-            System.out.println(Arrays.binarySearch(list, m));
-
-            if (Arrays.binarySearch(list, m) < 0) {
-                System.out.println("no");
-            } else {
+            int num = Integer.parseInt(sc.next());
+            if (list[num]) {
                 System.out.println("yes");
+            } else {
+                System.out.println("no");
             }
         }
 
