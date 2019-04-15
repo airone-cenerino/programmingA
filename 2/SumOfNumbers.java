@@ -1,4 +1,5 @@
 import java.util.*;
+import java.lang.*;
 
 /**
  * SumOfNumbers
@@ -9,7 +10,8 @@ public class SumOfNumbers {
         Scanner sc = new Scanner(System.in);
 
         out_of_loop: while (true) {
-            String str = sc.next(); // ‚±‚±‚Åˆê•¶š‚¸‚Â‚É‹æØ‚ê
+            String str = sc.next();
+            
             String[] strArray = str.split("");
 
             if (strArray[0].equals("0")) {
