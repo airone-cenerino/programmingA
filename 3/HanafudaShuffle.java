@@ -15,7 +15,7 @@ public class HanafudaShuffle {
             // 配列初期化（上から考えている）
             int[] list = new int[n];
             for (int i = 0; i < n; i++) {
-                list[i] = n - i - 1;
+                list[i] = n - i;
             }
 
             if (n == 0 && r == 0)
@@ -25,7 +25,15 @@ public class HanafudaShuffle {
                 int p = Integer.parseInt(sc.next());
                 int c = Integer.parseInt(sc.next());
 
+                int newarray[] = new int[n];
+                System.arraycopy(list, p - 1, newarray, 0, c);
+                System.arraycopy(list, 0, newarray, c, p - 1);
+                System.arraycopy(list, p + c - 1, newarray, p + c - 1, n - (p + c - 1));
+
+                list = newarray.clone();
             }
+
+            System.out.println(list[0]);
         }
     }
 }
