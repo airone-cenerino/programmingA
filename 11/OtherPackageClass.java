@@ -1,4 +1,4 @@
-import tomo_k.ruri.waseda.jp;
+import tomo_k.ruri.waseda.jp.*;
 /**
  * OtherPackageClass
  */
