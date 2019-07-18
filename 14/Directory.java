@@ -1,0 +1,7 @@
+/**
+ * Directory
+ */
+public interface Directory {
+
+    
+}
